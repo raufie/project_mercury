@@ -1,0 +1,6 @@
+Ae: Accumulator Write Enable (write to accumulator what is on the bus)
+Ao: Accumulator Output Enable (write to the bus what is on the accumulator)
+Ar: Accumulator reset to zero
+
+
+

@@ -1,0 +1,23 @@
+# Ignore the virtual environment
+.venv/
+
+# Ignore specific files
+electronics_book.pdf
+hidden_stuff
+
+# Ignore logisim-related files
+logisim-evolution-*.jar
+logisim.sh
+
+# Ignore JDK installer
+jdk-*.deb
+
+
+# Ignore crash logs
+mono_crash.*.json
+
+# General Python ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
