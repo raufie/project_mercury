@@ -1,6 +1,37 @@
 Ae: Accumulator Write Enable (write to accumulator what is on the bus)
 Ao: Accumulator Output Enable (write to the bus what is on the accumulator)
-Ar: Accumulator reset to zero
+Ar: Accumulator reset
+Te: Temp enable
+To: Temp output
+Tr: Temp reset
+Be: Register B write enable
+Bo: Register B output enable
+Br: Register B reset
+Ce: C write enable
+Co: C output enable
+Cr: C reset
+MARe: MAR write enable
+MARo: MAR output enable
+MARr: MAR reset
+RAMe: RAM write enable
+RAMo: RAM output enable
+MDRe: MDR write enable
+MDRo: MDR output enable
+MDRr: MDR reset
+IRe: Instruction Register write enable
+IRo: Instruction Register output enable
+IRr: Instruction Register reset
+PCr: PC reset
+PCl: PC load
+ALU_ADD
+ALU_SUB
+ALU_DCR
+ALU_INR
+ALU_AND
+ALU_OR
+ALU_XOR
+ALU_RAL
+ALU_RAR
+ALU_NOT
 
-
-
+ADD,SUB,DCR, INR -- AND, OR, XOR -- RAL, RAR -- NOT
