@@ -1,8 +1,12 @@
+// Fetch cycle
+
 CON-0x00 = PCw MARe
 CON-0x01 = MARo PCe
 CON-0x02 = MARo MDRe MDRlr
 CON-0X03 = MDRo MDRob IRe
+
 OP-0x3a = 0x04
+// FIX THISSSSSSSSSS :  MAR SHOULD LOAD LOWER AND HIGHER BITS SEPARATELY AS WELL
 CON-0x04 = PCw MARe
 CON-0x05 = MARo PCe
 CON-0x06 = MARo MDRe MDRlr
@@ -10,9 +14,37 @@ CON-0x07 = MDRo MDRob MARe
 CON-0x08 = MARo MDRe MDRlr
 CON-0x09 = MDRo MDRob Ae
 CON-0x0a = RESET_CYCLE
+
 OP-0x78 = 0x0b
-CON-0x0b = Ao Be
+CON-0x0b = Ae Bo
 CON-0x0c = RESET_CYCLE
+
 OP-0x79 = 0x0d
-CON-0x0d = Ao Ce
+CON-0x0d = Ae Co
 CON-0x0e = RESET_CYCLE
+
+// Mov registers
+
+OP-0x47 = 0x0f
+CON-0x0f = Be Ao
+CON-0x10 = RESET_CYCLE
+
+OP-0x41 = 0x11
+CON-0x11 = Be Co
+CON-0x12 = RESET_CYCLE
+
+OP-0x4f = 0x13
+CON-0x13 = Ce Ao
+CON-0x14 = RESET_CYCLE
+
+OP-0x48 = 0x15
+CON-0x15 = Ce Bo
+CON-0x16 = RESET_CYCLE
+
+// Move immediates
+OP-0x3e = 0x17
+CON-0x17 = Ce Bo
+CON-0x16 = RESET_CYCLE
+
+
+
