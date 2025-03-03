@@ -40,3 +40,5 @@ IRo: Instruction Register output enable
 IRr: Instruction Register reset
 RESET_CYCLE: reset controller to execute the next instruction cycle
 HLT: stops the clock
+MARLw: MAR lower byte write
+MARHw: MAR higher byte write
