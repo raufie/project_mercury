@@ -23,3 +23,76 @@ CON-0x0c = To MARLw
 CON-0x0d = MARo MDRe MDRlr
 CON-0x0e = MDRo MDRob Ae
 CON-0x0f = RESET_CYCLE
+
+
+// MOV A, B : Move to A the contents of B
+
+OP-78 = 0x10
+
+CON-0x10 = Bo Ae
+CON-0x11 = RESET_CYCLE
+
+// MOV A, C
+
+OP-79 = 0x12
+CON-0x12 = Co Ae
+CON-0x13 = RESET_CYCLE
+
+// MOV B, A
+
+OP-47 = 0x14
+CON-0x14 = Be Ao
+CON-0x15 = RESET_CYCLE
+
+// MOV B, C
+
+OP-41 = 0x16
+CON-0x16 = Be Co
+CON-0x17 = RESET_CYCLE
+
+// MOV C, A
+
+OP-4f = 0x18
+CON-0x18 = Ce Ao
+CON-0x19 = RESET_CYCLE
+
+// MOVE C, B
+
+OP-48 = 0x1a
+CON-0x1a = Ce Bo
+CON-0x1b = RESET_CYCLE
+
+// *** MOVE IMMEDIATES
+
+// MVI A, byte
+
+OP-3E = 0x1c
+
+CON-0x1c = PCw MARe
+CON-0x1d = MARo PCe
+CON-0x1e = MARo MDRe MDRlr
+
+CON-0x1f = MDRo MDRob Ae
+CON-0x20 = RESET_CYCLE
+
+// MVI B, byte
+
+OP-06 = 0x21
+CON-0x21 = PCw MARe
+CON-0x22 = MARo PCe
+CON-0x23 = MARo MDRe MDRlr
+
+CON-0x24 = MDRo MDRob Be
+CON-0x25 = RESET_CYCLE
+
+// MVI C, byte
+
+OP-0E = 0x26
+CON-0x26 = PCw MARe
+CON-0x27 = MARo PCe
+CON-0x28 = MARo MDRe MDRlr
+
+CON-0x29 = MDRo MDRob Ce
+CON-0x2a = RESET_CYCLE
+
+// STA address : store the accumulator on the address
