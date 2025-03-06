@@ -120,12 +120,14 @@ if __name__ == '__main__':
                 if len(splits[1])==6:
                     # 0xhhhh
                     prec = splits[0]+ " 0xHHHH"
-                    extras.append('0x'+splits[1].split('x')[1][:2])
+                    # SWAP BYTES (LITTLE ENDIAN)
                     extras.append('0x'+splits[1].split('x')[1][2:])
+                    extras.append('0x'+splits[1].split('x')[1][:2])
                 elif len(splits[1])==4:
                     prec = splits[0]+ " 0xHH"
                     extras.append(splits[1])
-                    
+            else:
+                prec = " ".join(splits)                    
         if len(splits) == 3:
             last_one = splits[-1]
             prec = " ".join(splits[:-1])

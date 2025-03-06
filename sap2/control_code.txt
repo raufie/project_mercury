@@ -14,8 +14,8 @@ MDRob: MDR switch output sink = bus
 MDRor: MDR output sink = ram
 ALU_ADD: add
 ALU_SUB: sum
-ALU_DCR: decrement the acc
-ALU_INR: increment the acc
+ALU_DCR: decrement the tmp
+ALU_INR: increment the tmp
 ALU_AND: and
 ALU_OR: or
 ALU_XOR: xor

@@ -1138,6 +1138,30 @@
     <a name="circuit" val="sap_2"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="16.0"/>
+    <comp lib="0" loc="(1410,50)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(1680,50)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(1730,140)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(1740,170)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+    </comp>
     <comp lib="0" loc="(380,390)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="output" val="true"/>
@@ -1430,26 +1454,31 @@
     <wire from="(1350,390)" to="(1350,430)"/>
     <wire from="(1350,390)" to="(1360,390)"/>
     <wire from="(1350,430)" to="(1410,430)"/>
-    <wire from="(1370,190)" to="(1390,190)"/>
+    <wire from="(1370,190)" to="(1410,190)"/>
+    <wire from="(1370,220)" to="(1390,220)"/>
     <wire from="(1370,590)" to="(1400,590)"/>
+    <wire from="(1370,620)" to="(1720,620)"/>
     <wire from="(1370,690)" to="(1400,690)"/>
+    <wire from="(1370,720)" to="(1740,720)"/>
     <wire from="(1380,300)" to="(1400,300)"/>
-    <wire from="(1380,470)" to="(1410,470)"/>
+    <wire from="(1380,470)" to="(1420,470)"/>
+    <wire from="(1380,500)" to="(1410,500)"/>
     <wire from="(1380,660)" to="(1380,760)"/>
     <wire from="(1380,660)" to="(1420,660)"/>
-    <wire from="(1390,190)" to="(1390,270)"/>
-    <wire from="(1390,190)" to="(1410,190)"/>
+    <wire from="(1390,220)" to="(1390,270)"/>
     <wire from="(1390,330)" to="(1420,330)"/>
     <wire from="(1390,360)" to="(1450,360)"/>
     <wire from="(1390,380)" to="(1500,380)"/>
+    <wire from="(1390,50)" to="(1390,220)"/>
+    <wire from="(1390,50)" to="(1410,50)"/>
     <wire from="(1390,650)" to="(1390,670)"/>
     <wire from="(1390,650)" to="(1510,650)"/>
     <wire from="(1400,160)" to="(1400,170)"/>
     <wire from="(1400,160)" to="(1430,160)"/>
     <wire from="(1400,260)" to="(1400,300)"/>
     <wire from="(1400,300)" to="(1490,300)"/>
-    <wire from="(1410,430)" to="(1410,470)"/>
-    <wire from="(1410,470)" to="(1420,470)"/>
+    <wire from="(1410,430)" to="(1410,500)"/>
+    <wire from="(1410,500)" to="(1680,500)"/>
     <wire from="(1420,550)" to="(1420,570)"/>
     <wire from="(1420,660)" to="(1420,670)"/>
     <wire from="(1430,160)" to="(1430,170)"/>
@@ -1477,6 +1506,10 @@
     <wire from="(1510,390)" to="(1510,650)"/>
     <wire from="(1510,390)" to="(1520,390)"/>
     <wire from="(1510,650)" to="(1510,1020)"/>
+    <wire from="(1680,50)" to="(1680,500)"/>
+    <wire from="(1720,140)" to="(1720,620)"/>
+    <wire from="(1720,140)" to="(1730,140)"/>
+    <wire from="(1740,170)" to="(1740,720)"/>
     <wire from="(380,390)" to="(390,390)"/>
     <wire from="(390,390)" to="(390,550)"/>
     <wire from="(390,550)" to="(440,550)"/>
@@ -1905,6 +1938,7 @@
       <text dominant-baseline="central" font-family="gallant12x22" font-size="8" text-anchor="middle" x="65" y="90">clk</text>
       <rect height="10" stroke="#000000" width="64" x="50" y="107"/>
       <text dominant-baseline="central" fill="#ffffff" font-family="gallant12x22" font-size="8" text-anchor="middle" x="77" y="112">register_8b</text>
+      <text dominant-baseline="central" font-family="gallant12x22" font-size="8" text-anchor="middle" x="126" y="91">Q_nc</text>
       <circ-anchor facing="east" x="140" y="60"/>
       <circ-port dir="in" pin="80,60" x="50" y="80"/>
       <circ-port dir="in" pin="90,120" x="50" y="60"/>
@@ -1912,8 +1946,16 @@
       <circ-port dir="in" pin="90,160" x="50" y="90"/>
       <circ-port dir="in" pin="90,200" x="50" y="100"/>
       <circ-port dir="out" pin="280,120" x="140" y="60"/>
+      <circ-port dir="out" pin="280,150" x="140" y="90"/>
     </appear>
     <comp lib="0" loc="(280,120)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(280,150)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -1945,7 +1987,10 @@
       <a name="appearance" val="logisim_evolution"/>
     </comp>
     <wire from="(180,180)" to="(180,200)"/>
-    <wire from="(210,120)" to="(240,120)"/>
+    <wire from="(210,120)" to="(230,120)"/>
+    <wire from="(230,120)" to="(230,150)"/>
+    <wire from="(230,120)" to="(240,120)"/>
+    <wire from="(230,150)" to="(280,150)"/>
     <wire from="(250,60)" to="(250,110)"/>
     <wire from="(260,120)" to="(280,120)"/>
     <wire from="(80,60)" to="(250,60)"/>
@@ -2597,9 +2642,13 @@
     <comp lib="4" loc="(380,230)" name="ROM">
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 8 8
-6*0 21 7*0 26 43*0 4 0 0
-0 1c 0 0 16 5*0 14 1a
-6*0 18 40*0 10 12
+4*0 63 5a 21 5*0 66 5d 26
+8*0 87 7*0 8a 15*0 4a 0 0
+2b 7*0 4 0 60 4d 1c 0
+0 16 5*0 14 1a 6*0 18 40*0
+10 12 6*0 37 3a 14*0 75 78
+14*0 3d 40 6*0 7b 7e 6*0 69
+6c 52*0 43 7*0 81 7*0 6f
 </a>
     </comp>
     <comp lib="4" loc="(520,1030)" name="Counter">
@@ -2618,7 +2667,18 @@
 102000000 10000000000 802000000 10000000000 84000000 10000000000 880000000 10000000000
 404000000 10000000000 500000000 10000000000 18 21 920 2001200
 10000000000 18 21 920 80001200 10000000000 18 21
-920 400001200 10000000000
+920 400001200 10000000000 18 21 920 10001200 18
+21 920 80000001200 40020000000 4000520 22a0 10000000000 110000000
+3004000 10000000000 810000000 3004000 10000000000 110000000 3040000 10000000000
+810000000 3040000 10000000000 0 18 21 920 10001200
+3040000 10000000000 14000000 3800000 10000000000 14000000 3010000 10000000000
+10*0 110000000 81010000 10000000000 810000000 401010000 10000000000 14000000
+3020000 10000000000 110000000 81020000 10000000000 810000000 401020000 10000000000
+110000000 3080000 10000000000 810000000 3080000 10000000000 18 21
+920 10001200 3080000 10000000000 110000000 3008000 10000000000 810000000
+3008000 10000000000 110000000 3100000 10000000000 810000000 3100000 10000000000
+18 21 920 10001200 3100000 10000000000 14000000 3200000
+10000000000 14000000 3400000 10000000000
 </a>
       <a name="dataWidth" val="64"/>
       <a name="labelvisible" val="true"/>
