@@ -104,28 +104,60 @@ if __name__ == '__main__':
     program = open(args.file,'r').read()
     program_code = []
     stack = []
-    for line in program.split('\n'):
+    call_namespace_index = {}
+    addr = 0
+      
+    for i, line in enumerate(program.split('\n')):
+        if len(line.strip())==0:
+            continue
+        if line.__contains__(":"):
+            if line.split(':')[0] != 'main':
+                # ignore
+                name = line.split(':')[0]
+                  
+                call_namespace_index[name] = "0x"+"".join(str(hex(addr)).split("x")[1:]).zfill(4)
+        else:
+            instr = line
+            splits = instr.strip().split(" ")
+            if len(splits) == 1:
+                addr+=1
+            elif len(splits) == 2:
+                if len(splits[1])>=2 and splits[1][:2]=='0x':
+                    if len(splits[1])==6:
+                        addr+=3
+                    elif len(splits[1])==4:
+                        prec = splits[0]+ " 0xHH"
+                        addr+=2
+                else:
+                    if splits[0] == 'call':
+                        addr+=3
+                    else:    
+                        addr+=1
+            if len(splits) == 3:
+                last_one = splits[-1]
+                
+                if len(last_one) > 1:
+                    addr+=2
+                    
+                else:
+                    prec+=' '+ last_one
+                    addr+=1
+            
+    for i, line in enumerate(program.split('\n')):
+        if line.__contains__(":"):
+            continue
+        if len(line.strip())==0 :
+            continue
         line_code = []
         extras = []
         instr = line
-        # check for the operator
         splits = instr.strip().split(" ")
-        # check for the operand
-        # print(instr)
         if len(splits) == 1:
-            # just store address
             prec = splits[0]
         elif len(splits) == 2:
             if len(splits[1])>=2 and splits[1][:2]=='0x':
                 if len(splits[1])==6:
-                    # 0xhhhh
-                    if splits[0].strip().lower() == 'call':
-                        extras.append('0xFF')
-                        extras.append('0xFF')
-                        extras.append('0xFe')
-                        extras.append('0xFF')
                     prec = splits[0]+ " 0xHHHH"
-                    # SWAP BYTES (LITTLE ENDIAN)
                     extras.append('0x'+splits[1].split('x')[1][2:])
                     extras.append('0x'+splits[1].split('x')[1][:2])
 
@@ -133,7 +165,17 @@ if __name__ == '__main__':
                     prec = splits[0]+ " 0xHH"
                     extras.append(splits[1])
             else:
-                prec = " ".join(splits)                    
+                if splits[0] == 'call':
+                    # HERE WE ASSUME THAT CALL IS TO A NAMESPACE ADDRESS so we must alter it
+                    prec = 'call 0xHHHH'
+                    address = call_namespace_index[splits[1].strip()]
+                    
+                    # extras.append('0x'+splits[1].split('x')[1][2:])
+                    # extras.append('0x'+splits[1].split('x')[1][:2])
+                    extras.append('0x'+address.split('x')[1][2:])
+                    extras.append('0x'+address.split('x')[1][:2])
+                else:    
+                    prec = " ".join(splits)                    
         if len(splits) == 3:
             last_one = splits[-1]
             prec = " ".join(splits[:-1])

@@ -337,27 +337,26 @@ OP-0x76 = 0xbd
 CON-0xbd = HLT
 
 // ----- CALL address
-// call_op 0xHHHH (SP_)
-// reference mnemonic: call 0x1234, PC = 0xabcd
-// reference: 0xcd 0xfe ff 0xff 0xff 0x34 0x12
 
-// TASK:1 = SAVE lower byte of PC into 0xfffe (so 0xcd should be present in 0xfffe)
+OP-0xcd = 0xbe
 
-OP-0xcd = 0xbc
-CON-0xbc = PCw MARe
-CON-0xbd = MARo PCe
-CON-0xbe = MARo MDRe MDRlr
-CON-0xbf = MDRo MDRob Te
-// Get the second byte
-CON-0xc0 = PCw MARe
-CON-0xc1 = MARo PCe
-CON-0xc2 = MARo MDRe MDRlr
-CON-0xc3 = MDRo MDRob MARHw
-CON-0xc4 = To MARLw
-CON-0xc5 = MARob MDRe MDRlb
-CON-0xc6 = MARo MDRo MDRor RAMe
+CON-0xbe = PCw MARe
+CON-0xbf = MARo PCe
+CON-0xc0 = MARo MDRe MDRlr
+CON-0xc1 = MDRo MDRob Te
+// Get the second byte 
+CON-0xc2 = PCw MARe
+CON-0xc3 = MARo PCe
+CON-0xc4 = MARo MDRe MDRlr
+CON-0xc5 = MDRo MDRob MARHw
+CON-0xc6 = To MARLw
+CON-0xc7 = REFe PCw
+CON-0xc8 = PCe
+CON-0xc9 = MARob PCl
+CON-0xca = RESET_CYCLE
 
-// Left most byte to be stored on this dude.
 
-CON-0xc8 = RESET_CYCLE
-// get the first byte of address word and store as SP's first word (higher byte)
+// --- RET
+OP-0xc9 = 0xcb 
+CON-0xcb = REFo PCl
+CON-0xcc = RESET_CYCLE

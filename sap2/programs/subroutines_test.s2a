@@ -1,0 +1,10 @@
+main:
+    mvi a, 0x89
+    mvi b, 0x11 
+    call add_b
+    hlt
+
+add_b:
+    add b
+    ret
+

@@ -47,3 +47,7 @@ RESET_CYCLE_ON_ZERO: self explanatory
 RESET_CYCLE_ON_NON_ZERO: self explanatory
 RESET_CYCLE_ON_NEGATIVE: self explanatory
 RESET_CYCLE_ON_NON_NEGATIVE: self explanatory
+REFo: load ref onto the bus
+REFe: load bus onto the ref
+REFLw: load low byte on ref
+REFHw: load higher byte on ref
