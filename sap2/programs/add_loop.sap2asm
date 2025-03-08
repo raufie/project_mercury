@@ -1,0 +1,3 @@
+mvi a, 0x00
+inr a
+jmp 0x0002

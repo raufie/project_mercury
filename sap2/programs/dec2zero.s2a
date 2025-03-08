@@ -1,0 +1,4 @@
+mvi a, 0x03
+dcr a
+jnz 0x0002
+hlt

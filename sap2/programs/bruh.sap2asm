@@ -1,21 +1,2 @@
-mvi a, 0x69
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
-dcr a
+jnz 0x0000
+hlt

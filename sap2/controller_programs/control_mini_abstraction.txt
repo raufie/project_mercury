@@ -264,6 +264,100 @@ CON-0x8a = Ao Te
 CON-0x8b = ALU_RAR ALU_WRITE_ENABLE Ae
 CON-0x8c = RESET_CYCLE
 
+// JMP address
+// load PC with what ever is at address
+OP-0xc3 = 0x8d
 
+CON-0x8d = PCw MARe
+CON-0x8e = MARo PCe
+CON-0x8f = MARo MDRe MDRlr
+CON-0x90 = MDRo MDRob Te
+// Get the second byte 
+CON-0x91 = PCw MARe
+CON-0x92 = MARo PCe
+CON-0x93 = MARo MDRe MDRlr
+CON-0x94 = MDRo MDRob MARHw
+CON-0x95 = To MARLw
+CON-0x96 = MARob PCl
+CON-0x97 = RESET_CYCLE
 
+// JM: Jump if minus, reset on non negative
 
+OP-0xfa = 0x98
+CON-0x98 = PCw MARe
+CON-0x99 = MARo PCe
+CON-0x9a = MARo MDRe MDRlr
+CON-0x9b = MDRo MDRob Te
+// Get the second byte 
+CON-0x9c = PCw MARe
+CON-0x9d = MARo PCe
+CON-0x9e = RESET_CYCLE_ON_NON_NEGATIVE
+CON-0x9f = MARo MDRe MDRlr
+CON-0xa0 = MDRo MDRob MARHw
+CON-0xa1 = To MARLw
+CON-0xa2 = MARob PCl
+CON-0xa3 = RESET_CYCLE
+
+// JNZ: Jump if non zero, reset on zero
+
+OP-0xc2 = 0xa4
+CON-0xa4 = PCw MARe
+CON-0xa5 = MARo PCe
+CON-0xa6 = MARo MDRe MDRlr
+CON-0xa7 = MDRo MDRob Te
+// Get the second byte 
+CON-0xa8 = PCw MARe
+CON-0xa9 = MARo PCe
+CON-0xaa = RESET_CYCLE_ON_ZERO
+CON-0xab = MARo MDRe MDRlr
+CON-0xac = MDRo MDRob MARHw
+CON-0xad = To MARLw
+CON-0xae = MARob PCl
+CON-0xaf = RESET_CYCLE
+
+// JZ address: jump if zero, reset on non-zero
+
+OP-0xca = 0xb0
+CON-0xb0 = PCw MARe
+CON-0xb1 = MARo PCe
+CON-0xb2 = MARo MDRe MDRlr
+CON-0xb3 = MDRo MDRob Te
+// Get the second byte 
+CON-0xb4 = PCw MARe
+CON-0xb5 = MARo PCe
+CON-0xb6 = RESET_CYCLE_ON_NON_ZERO
+CON-0xb7 = MARo MDRe MDRlr
+CON-0xb8 = MDRo MDRob MARHw
+CON-0xb9 = To MARLw
+CON-0xba = MARob PCl
+CON-0xbc = RESET_CYCLE
+
+// HALT
+OP-0x76 = 0xbd
+CON-0xbd = HLT
+
+// ----- CALL address
+// call_op 0xHHHH (SP_)
+// reference mnemonic: call 0x1234, PC = 0xabcd
+// reference: 0xcd 0xfe ff 0xff 0xff 0x34 0x12
+
+// TASK:1 = SAVE lower byte of PC into 0xfffe (so 0xcd should be present in 0xfffe)
+
+OP-0xcd = 0xbc
+CON-0xbc = PCw MARe
+CON-0xbd = MARo PCe
+CON-0xbe = MARo MDRe MDRlr
+CON-0xbf = MDRo MDRob Te
+// Get the second byte
+CON-0xc0 = PCw MARe
+CON-0xc1 = MARo PCe
+CON-0xc2 = MARo MDRe MDRlr
+CON-0xc3 = MDRo MDRob MARHw
+CON-0xc4 = To MARLw
+CON-0xc5 = MARob MDRe MDRlb
+CON-0xc6 = MARo MDRo MDRor RAMe
+
+// Left most byte to be stored on this dude.
+
+CON-0xc8 = RESET_CYCLE
+// get the first byte of address word and store as SP's first word (higher byte)

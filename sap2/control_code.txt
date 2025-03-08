@@ -42,3 +42,8 @@ RESET_CYCLE: reset controller to execute the next instruction cycle
 HLT: stops the clock
 MARLw: MAR lower byte write
 MARHw: MAR higher byte write
+MARob: MAR output enable to bus
+RESET_CYCLE_ON_ZERO: self explanatory
+RESET_CYCLE_ON_NON_ZERO: self explanatory
+RESET_CYCLE_ON_NEGATIVE: self explanatory
+RESET_CYCLE_ON_NON_NEGATIVE: self explanatory

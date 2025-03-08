@@ -119,10 +119,16 @@ if __name__ == '__main__':
             if len(splits[1])>=2 and splits[1][:2]=='0x':
                 if len(splits[1])==6:
                     # 0xhhhh
+                    if splits[0].strip().lower() == 'call':
+                        extras.append('0xFF')
+                        extras.append('0xFF')
+                        extras.append('0xFe')
+                        extras.append('0xFF')
                     prec = splits[0]+ " 0xHHHH"
                     # SWAP BYTES (LITTLE ENDIAN)
                     extras.append('0x'+splits[1].split('x')[1][2:])
                     extras.append('0x'+splits[1].split('x')[1][:2])
+
                 elif len(splits[1])==4:
                     prec = splits[0]+ " 0xHH"
                     extras.append(splits[1])
