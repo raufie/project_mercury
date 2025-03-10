@@ -51,3 +51,6 @@ REFo: load ref onto the bus
 REFe: load bus onto the ref
 REFLw: load low byte on ref
 REFHw: load higher byte on ref
+IP1o: Output the byte from input port 1
+IP1_ack:reset the input port (acknowledge flag)
+IP2o: Output the byte from input port 2 (status bits)

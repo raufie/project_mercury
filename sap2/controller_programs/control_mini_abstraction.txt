@@ -360,3 +360,16 @@ CON-0xca = RESET_CYCLE
 OP-0xc9 = 0xcb 
 CON-0xcb = REFo PCl
 CON-0xcc = RESET_CYCLE
+
+
+// TODO: CONVER THIS INTO A BYTE COMMAND FOR REUSE IN 0x01 , IN 0x02 (multiplexer, 1 by 2)
+// IN01 : input port 1 into the accumulator
+OP-0xdb = 0xcd
+CON-0xcd = IP1o Ae
+CON-0xce = IP1_ack
+CON-0xcf = RESET_CYCLE
+
+//  NO-OP (ff is equal to 0 always)
+OP-0x00 = 0xff
+CON-0xff = RESET_CYCLE
+

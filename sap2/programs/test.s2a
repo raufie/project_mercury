@@ -1,1 +1,2 @@
-mvi a, 0x
+in01
+jmp 0x0000
