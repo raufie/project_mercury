@@ -126,8 +126,12 @@ if __name__ == '__main__':
                     if len(splits[1])==6:
                         addr+=3
                     elif len(splits[1])==4:
-                        prec = splits[0]+ " 0xHH"
-                        addr+=2
+                        if splits[0] == 'out':
+                            prec = " ".join(splits)
+                            addr+=1
+                        else:
+                            prec = splits[0]+ " 0xHH"
+                            addr+=2
                 else:
                     if splits[0] == 'call':
                         addr+=3
@@ -162,8 +166,11 @@ if __name__ == '__main__':
                     extras.append('0x'+splits[1].split('x')[1][:2])
 
                 elif len(splits[1])==4:
-                    prec = splits[0]+ " 0xHH"
-                    extras.append(splits[1])
+                    if splits[0] == 'out':
+                        prec = " ".join(splits)
+                    else:
+                        prec = splits[0]+ " 0xHH"
+                        extras.append(splits[1])
             else:
                 if splits[0] == 'call':
                     # HERE WE ASSUME THAT CALL IS TO A NAMESPACE ADDRESS so we must alter it
