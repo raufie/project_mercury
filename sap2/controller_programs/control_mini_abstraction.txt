@@ -378,7 +378,14 @@ OP-0xd3 = 0xd4
 CON-0xd4 = Ao OUT3_e
 CON-0xd5 = RESET_CYCLE
 
+
+// 
+OP-0xd4 = 0xd6
+CON-0xd6 = Ao OUT4_e
+CON-0xd7 = RESET_CYCLE
+
 //  NO-OP (ff is equal to 0 always)
 OP-0x00 = 0xff
 CON-0xff = RESET_CYCLE
 
+// 

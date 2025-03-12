@@ -55,3 +55,4 @@ INce: enable input flow based on the bus
 INack: reset the input port (acknowledge signal)
 INo: put input on the bus
 OUT3_e: equivalent to out 0x03 (this is faster (having 2 separate control signals) than implementing it in logic)
+OUT4_e: write to the output 4
