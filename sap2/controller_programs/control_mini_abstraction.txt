@@ -365,14 +365,22 @@ CON-0xcc = RESET_CYCLE
 // in 0xHH
 
 OP-0xdb = 0xcd
+CON-0xcd = Ae IN01
+CON-0xce = INack
+CON-0xcf = RESET_CYCLE
+
+OP-0xdc = 0xd0
+CON-0xd0 = Ae IN02
+CON-0xd1 = RESET_CYCLE
+
 // put the 0xHH on the bus
-CON-0xcd = PCw MARe
-CON-0xce = MARo PCe
-CON-0xcf = MARo MDRe MDRlr
-CON-0xd0 = MDRo MDRob INce
-CON-0xd1 = INo Ae
-CON-0xd2 = INack
-CON-0xd3 = RESET_CYCLE
+// CON-0xcd = PCw MARe
+// CON-0xce = MARo PCe
+// CON-0xcf = MARo MDRe MDRlr
+// CON-0xd0 = MDRo MDRob INce
+// CON-0xd1 = INo Ae
+// CON-0xd2 = INack
+// CON-0xd3 = RESET_CYCLE
 
 OP-0xd3 = 0xd4
 CON-0xd4 = Ao OUT3_e

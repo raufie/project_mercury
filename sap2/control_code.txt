@@ -51,8 +51,8 @@ REFo: load ref onto the bus
 REFe: load bus onto the ref
 REFLw: load low byte on ref
 REFHw: load higher byte on ref
-INce: enable input flow based on the bus
+IN01: enable port 1
 INack: reset the input port (acknowledge signal)
-INo: put input on the bus
+IN02: enable port 2
 OUT3_e: equivalent to out 0x03 (this is faster (having 2 separate control signals) than implementing it in logic)
 OUT4_e: write to the output 4

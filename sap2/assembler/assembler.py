@@ -37,6 +37,9 @@ class Assembler:
         program_lines = []
         label = None
         for i, line in enumerate(lines.split("\n")):
+            # check for comments
+            if line.__contains__(";"):
+                line = line.split(";")[0]
             # check for label
             if line.__contains__(":"):
                 label = line.split(":")[0].strip()
@@ -132,7 +135,6 @@ class Assembler:
                         raise Exception(f"Line-{line_no}: {symbol_table[agg]['base']} expected an Argument type {symbol_table[agg]['arg']}\nPlease use the template {symbol_table[agg]['full_mnemonic']}")    
                     arg = comps[i+1]
                     if arg in namespace:
-                        print(agg, arg)
                         arg = namespace[arg]
                     else:
                         arg = self.parse_arg_as_hex(arg, symbol_table[agg]['arg'])
