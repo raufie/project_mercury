@@ -18,7 +18,7 @@ class Assembler:
         for i, program_line in enumerate(parsed_program_lines):
             if len(program_line['raw_line'].strip()) == 0:
                 continue
-            translated_lines.append(self.translate_line(i+1,program_line['raw_line'].lower(), self.symbol_table, namespace))
+            translated_lines.append(self.translate_line(i+1,program_line['raw_line'], self.symbol_table, namespace))
 
         if output_path is None or output_path == '':
             f = open('bruh.o', 'wb')
@@ -44,14 +44,24 @@ class Assembler:
             if line.__contains__(":"):
                 label = line.split(":")[0].strip()
                 line = line.split(":")[1].strip()
-            
-            program_lines.append({"label":label,"raw_line":line.strip().lower()})
+            program_lines.append({"label":label,"raw_line":line.strip()})
             label = None
         return program_lines
+    
+    def is_arg_char(self, arg):
+        try:
+            if arg[0] == "'" and arg[2] == "'":
+                return True
+        except:
+            return False
+        return False
     
     def parse_arg_as_hex(self, arg:str, arg_len:str, little_endian = True):
         length = len(arg_len.split('x')[1])
         hex_string = ""
+        if self.is_arg_char(arg):
+            arg = f"{ord(arg[1])}"
+
         if arg.__contains__("x"):
             hex_string = arg.split("x")[1].zfill(length)
         elif arg.__contains__("b"):
@@ -69,7 +79,7 @@ class Assembler:
         count = 0
         for line in program_lines:
             label = line['label']
-            raw_line = line['raw_line'].lower()
+            raw_line = line['raw_line']
             if len(raw_line.strip())==0:
                 continue            
             comps = raw_line.split(" ") 
@@ -84,8 +94,7 @@ class Assembler:
                     is_op_found = True            
 
             if not is_op_found:
-                print(comps)
-                raise Exception("SyntaxError: Can't find the op") 
+                raise Exception(f"Line-{count}: SyntaxError: Can't find the op\n {line}")
             
         return namespace
                 
@@ -124,16 +133,19 @@ class Assembler:
         return symbol_table
     
     def translate_line(self, line_no, line, symbol_table, namespace):
-        comps = line.split(" ") 
+        comps = line.split(" ")
         agg = ""
         for i, component in enumerate(comps):
-            agg+=component
+            agg+=component.lower()
             if agg in symbol_table:
                 arg = None
                 if symbol_table[agg]['arg'] is not None:
                     if len(comps) < i+2:
                         raise Exception(f"Line-{line_no}: {symbol_table[agg]['base']} expected an Argument type {symbol_table[agg]['arg']}\nPlease use the template {symbol_table[agg]['full_mnemonic']}")    
-                    arg = comps[i+1]
+                    if line.__contains__("' '"):
+                        arg = "' '"
+                    else:    
+                        arg = comps[i+1]
                     if arg in namespace:
                         arg = namespace[arg]
                     else:

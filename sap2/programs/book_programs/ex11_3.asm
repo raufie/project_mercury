@@ -1,0 +1,7 @@
+mvi a, 0x23
+mvi b, 0x45
+add b
+sta 0x5600
+inr a
+mov c, a
+hlt
