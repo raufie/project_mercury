@@ -1,0 +1,20 @@
+Dupont strips
+
+Program Counter
+
+    74163 X 4 (parallel counter)
+    7408 X 1 (AND gate)
+    74125/74126 X 4 (buffer)
+
+
+8 Bit register
+
+    74hc194 X 2 (bidirectional register 4bit)
+
+8 bit buffer
+
+    74125/74126 X 2 (buffer)    
+
+
+
+https://digilog.pk/products/bidirectional-shift-register-ic-74hc194?_pos=2&_sid=29081af43&_ss=r

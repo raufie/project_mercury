@@ -1333,7 +1333,6 @@
     <comp lib="5" loc="(2440,1210)" name="LED"/>
     <comp lib="5" loc="(2580,1040)" name="TTY">
       <a name="bg" val="#ffda0a"/>
-      <a name="color" val="#ff0c3a"/>
       <a name="trigger" val="falling"/>
     </comp>
     <comp lib="8" loc="(1035,885)" name="Text">
