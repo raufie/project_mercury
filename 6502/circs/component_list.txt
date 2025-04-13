@@ -7,7 +7,7 @@ Program Counter
     74125/74126 X 4 (buffer)
 
 
-8 Bit register
+8 Bit register  
 
     74hc194 X 2 (bidirectional register 4bit)
 
